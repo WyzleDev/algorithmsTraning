@@ -1,17 +1,17 @@
 def linear_search(string:str):
-    ans = ""
-    anscnt = 0
-    dct = {}
-    if not isinstance(string, str):
-        return "It's not a string"
-    for now in string:
-        if now not in dct:
-            dct[now] = 0
-        dct[now] += 1
-    for key in dct:
-        if dct[key] > anscnt:
-            ans = key
-            anscnt = dct[key]
-    return ans
+    ans = "" # переменная для ответа
+    anscnt = 0 # начальный счетчик
+    dct = {} # создаем словарь для занесения в него данных
+    if not isinstance(string, str): #проверяем какой тип значения нам передали
+        return "It's not a string" # Если это не строка, то выводим это в консоль
+    for now in string: # Пробегаемся по всем символам переданной строки
+        if now not in dct: # И если их нет в словаре, то добавляем их туда
+            dct[now] = 0 # Добавили букву как ключ и присвоили ей 0
+        dct[now] += 1 # Если во время пробежки по строке мы встречаем еще такую букву, то просто добавляем к нулю единичку
+    for key in dct: # пробегаемся по созданному словарю
+        if dct[key] > anscnt: # если значение ключа больше начального счетчика, то присваиваем эти значение в переменные для ответа
+            ans = key # присвоили 1
+            anscnt = dct[key] # присвоили 2
+    return ans # вернули ответ
 
-print(linear_search())
+print(linear_search()) # проверяем
